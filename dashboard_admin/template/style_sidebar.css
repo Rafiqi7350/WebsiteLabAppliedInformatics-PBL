@@ -1,0 +1,277 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: #f7f8fa;
+}
+
+.card {
+    min-height: 320px;
+}
+
+.sidebar {
+    width: 240px;
+    background: #fff;
+    border-right: 1px solid #ddd;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: calc(100vh - 60px);
+    transition: width 0.3s ease;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 999;
+}
+
+.sidebar.collapsed {
+    width: 90px;
+}
+
+.sidebar.collapsed .navlink {
+    justify-content: center;
+    padding: 14px;
+    margin: 8px;
+    border-radius: 10px;
+
+}
+
+.sidebar.collapsed .navlink span {
+    display: none;
+}
+
+.sidebar.collapsed .navlink i {
+    font-size: 20px;
+    position: relative;
+    left: -10px;
+}
+
+.sidebar.collapsed .navlink.active {
+    padding: 14px;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.sidebar.collapsed~.content {
+    margin-left: 100px;
+}
+
+.sidebar.collapsed .navlink.dropdown-toggle {
+    justify-content: center;
+    position: relative;
+    padding: 14px;
+}
+
+.sidebar.collapsed .navlink.dropdown-toggle i:first-child {
+    font-size: 22px;
+    margin-right: 0;
+}
+
+.sidebar.collapsed .navlink.dropdown-toggle::after {
+    position: static;
+    margin-left: 0;
+    transform: rotate(-90deg);
+}
+
+.sidebar.collapsed .navlink i {
+    margin-right: 0;
+}
+
+.sidebar.collapsed .collapse.show {
+    position: absolute;
+    left: 90px;
+    top: 0;
+    background: #fff;
+    min-width: 180px;
+    border-radius: 8px;
+    padding: 8px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.navlink.dropdown-toggle.active {
+    background: rgba(255, 153, 0, 0.15);
+    color: #FF8C00;
+}
+
+.navlink.dropdown-toggle.active i {
+    color: #FF8C00;
+}
+
+/* SAAT NORMAL (TIDAK COLLAPSED) KEMBALI SEPERTI SEMULA */
+.sidebar:not(.collapsed) .navlink.dropdown-toggle {
+    justify-content: flex-start;
+}
+
+.sidebar:not(.collapsed) .navlink.dropdown-toggle::after {
+    position: static;
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* LOGO MENYESUAIKAN */
+#logoSidebar {
+    width: 150px;
+    transition: all 0.3s ease;
+}
+
+.sidebar.collapsed #logoSidebar {
+    width: 45px;
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Edge */
+}
+
+/* ===== SIDEBAR MENU ITEM ===== */
+.navlink {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    margin: 6px 12px;
+    border-radius: 10px;
+    color: #4a4a4a;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    position: relative;
+}
+
+/* ICON */
+.navlink i {
+    font-size: 18px;
+    color: #6b7280;
+    transition: color 0.25s ease;
+}
+
+/* TEXT */
+.navlink span {
+    font-size: 14.5px;
+}
+
+/* ===== HOVER EFFECT ===== */
+.navlink:hover {
+    background: rgba(255, 153, 0, 0.08);
+    color: #FF8C00;
+    transform: translateX(4px);
+}
+
+.navlink:hover i {
+    color: #FF8C00;
+}
+
+/* ===== ACTIVE MENU ===== */
+.navlink.active {
+    background: linear-gradient(135deg, #FF8C00, #f9ab4b);
+    color: #ffffff;
+
+}
+
+.navlink.active i {
+    color: #ffffff;
+}
+
+/* Indicator garis kiri */
+.navlink.active::before {
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60%;
+    width: 5px;
+    background: #FF8C00;
+    border-radius: 10px;
+}
+
+.navlink.dropdown-toggle::after {
+    margin-left: auto;
+}
+
+
+
+/*CONTENT */
+.content {
+    margin-left: 240px;
+    margin-top: 60px;
+    transition: margin-left 0.3s ease;
+    padding: 25px;
+}
+
+.content.collapsed {
+    margin-left: 90px;
+}
+
+.content::-webkit-scrollbar {
+    display: none;
+}
+
+.hamburger-btn {
+    font-size: 28px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+}
+
+/* PROFILE DROPDOWN */
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-dropdown img {
+    cursor: pointer;
+}
+
+.dropdown-menu-custom {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: #fff;
+    min-width: 130px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.dropdown-menu-custom a {
+    padding: 10px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-menu-custom a:hover {
+    background: #eee;
+}
+
+/* SEARCH BOX */
+#searchInput {
+    border-radius: 50px;
+    padding-left: 40px;
+}
+
+#searchInput::placeholder {
+    color: gray;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    color: gray;
+    pointer-events: none;
+}
+
+html,
+body {
+    height: 100%;
+    overflow: visible;
+}
+
+#logoSidebar {
+    width: 150px;
+    transition: width 0.3s ease;
+}

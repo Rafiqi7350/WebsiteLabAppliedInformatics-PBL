@@ -1,0 +1,464 @@
+:root {
+    --color-primary: #02416D;
+    --color-secondary: #FF7C10;
+    --color-accent: #02B3BA;
+    --success-color: #43a047;
+    --warning-color: #fb8c00;
+    --danger-color: #e53935;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --card-shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.15);
+    /* Bayangan hover lebih dalam */
+}
+
+body {
+    background-color: #f5f7fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* TOPBAR */
+.hamburger-btn {
+    font-size: 28px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+}
+
+/* HEADER SECTION */
+.dashboard-header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    padding: 40px 0;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-left: 200px;
+    margin-top: 35px;
+}
+
+.dashboard-header .container-fluid {
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.col-md-6 {
+    width: 400px;
+}
+
+.welcome-section {
+    color: white;
+    transform: translateX(30px);
+}
+
+.welcome-section h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.welcome-section p {
+    font-size: 16px;
+    opacity: 0.85;
+    margin: 0;
+
+}
+
+.header-stats {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    transform: translateX(140%);
+}
+
+.header-stat-item {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 10px 16px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    min-width: 120px;
+}
+
+.header-stat-item .label {
+    font-size: 12px;
+    opacity: 0.85;
+    margin-bottom: 2px;
+}
+
+.header-stat-item .value {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* MAIN CONTENT WRAPPER */
+.content-wrapper {
+    max-width: 1200px;
+    /* batasi lebar maksimal */
+    margin: 0 auto;
+    /* center */
+    padding: 0 20px 40px 20px;
+    /* padding samping */
+    margin-top: -50px;
+
+}
+
+.section-title {
+    font-size: 22px;
+    /* Disesuaikan agar lebih menonjol */
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-title i {
+    color: var(--primary-color);
+}
+
+/* STATS CARDS - tampil horizontal */
+.stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.stat-card {
+    flex: 1 1 220px;
+    max-width: 240px;
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* Transisi untuk efek hover yang halus */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* MENGGANTI EFEK HOVER LAMA DENGAN POP UP HALUS */
+.stat-card::before {
+    /* Menghilangkan efek garis hover lama */
+    content: none;
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    /* Pop up lebih tinggi */
+    box-shadow: var(--card-shadow-hover);
+}
+
+
+.stat-card-header {
+    display: flex;
+    justify-content: space-between;
+    /* Icon di kiri, body di kanan */
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* MENGGUNAKAN WARNA DARI VARIABEL CSS */
+.stat-card.blue .stat-icon {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #1283d3 100%);
+}
+
+.stat-card.teal .stat-icon {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #007983 100%);
+}
+
+.stat-card.green .stat-icon {
+    background: linear-gradient(135deg, var(--success-color) 0%, #38763b 100%);
+}
+
+.stat-card.orange .stat-icon {
+    background: linear-gradient(135deg, var(--warning-color) 0%, #c86e00 100%);
+}
+
+.stat-card.red .stat-icon {
+    background: linear-gradient(135deg, var(--danger-color) 0%, #a82725 100%);
+}
+
+.stat-card-body {
+    position: relative;
+    z-index: 1;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary-color);
+    /* Menggunakan warna primary */
+    margin-bottom: 6px;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #7f8c8d;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-footer {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #ecf0f1;
+    font-size: 12px;
+    color: #95a5a6;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* QUICK ACTIONS */
+.quick-actions {
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+    padding: 24px;
+    background: white;
+    /* Memberikan latar belakang pada quick actions */
+    border-radius: 14px;
+    box-shadow: var(--card-shadow);
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Meratakan ke kiri */
+    gap: 12px;
+    padding: 14px 18px;
+    background: #f0f4f7;
+    border: 1px solid #e0e6ed;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: rgb(0, 0, 0);
+    transform: translateY(-2px);
+    /* Pop up sedikit */
+}
+
+.action-btn i {
+    font-size: 22px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    color: var(--secondary-color);
+    /* Warna ikon default */
+    transition: color 0.3s ease;
+}
+
+.action-btn:hover i {
+    color: var(--primary-color);
+    /* Ganti warna ikon saat hover */
+}
+
+
+/* ACTIVITY SECTION */
+.activity-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+
+.activity-card {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: var(--card-shadow);
+}
+
+.activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.activity-item {
+    padding: 14px 0;
+    border-bottom: 1px solid #ecf0f1;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f4f7;
+    color: var(--accent-color);
+    /* Menggunakan accent color */
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 2px;
+}
+
+.activity-time {
+    font-size: 12px;
+    color: #95a5a6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .stats-grid {
+        /* Memperbaiki grid template columns */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .activity-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-header h1 {
+        font-size: 24px;
+    }
+
+    .header-stats {
+        flex-direction: column;
+        align-items: stretch;
+        margin-top: 16px;
+    }
+
+    .header-stat-item {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .action-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* GRID BARU UNTUK MENYELARASKAN STATISTIK DAN VISUAL */
+.stats-visual-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* kiri lebih besar */
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 992px) {
+    .stats-visual-wrapper {
+        grid-template-columns: 1fr;
+        /* jadi satu kolom */
+    }
+}
+
+/* LAYOUT BARU UNTUK SEJARAHKAN STATISTIK DAN VISUAL */
+.stats-visual-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+@media (max-width: 992px) {
+    .stats-visual-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Layout Chart kiri dan Cards kanan */
+.visual-stats-wrapper {
+    display: grid;
+    grid-template-columns: 1.3fr 2fr;
+    /* Chart kiri lebih kecil */
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+/* Grid cards 2x2 */
+.stats-grid-right {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.stats-grid-right .stat-card {
+    width: 100%;
+    min-width: 330px;
+    /* bisa kamu naikin 350 / 380 kalau mau lebih lebar */
+}
+
+@media (max-width: 992px) {
+    .visual-stats-wrapper {
+        grid-template-columns: 1fr;
+        /* Jadi kolom */
+    }
+
+    .stats-grid-right {
+        grid-template-columns: 1fr;
+        /* Card jadi 1 kolom di layar kecil */
+    }
+}
